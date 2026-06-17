@@ -49,7 +49,7 @@
                 &kp CLCK   &kp A     &kp S    &kp D    &kp F    &kp G    &kp SQT
                 &kp LSHFT  &kp Z     &kp X    &kp C    &kp V    &kp B
                 &kp LCTRL  &kp LWIN  &kp LALT &discord_mute &mo 1
-                                                        		 &kp SPACE
+                                                                     &kp SPACE
 
                 // === RIGHT HALF ===
                 &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12  &kp DEL
@@ -66,7 +66,7 @@
                 &kp PG_UP &kp KP_N7  &kp KP_N8     &kp KP_N9 
                 &kp PG_DN &kp KP_N4  &kp KP_N5     &kp KP_N6       &kp KP_PLUS
                 &kp UP    &kp KP_N1  &kp KP_N2     &kp KP_N3
-    &kp LEFT  &kp DOWN   &kp RIGHT   &kp KP_N0     &kp KP_DOT      &kp KP_ENTER
+    &kp LEFT    &kp DOWN  &kp RIGHT  &kp KP_N0     &kp KP_DOT      &kp KP_ENTER
 
             >;
         };
