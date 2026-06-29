@@ -10,18 +10,20 @@
     chosen {
         zmk,physical-layout = &default_layout;
     };
+
 kscan: kscan {
     compatible = "zmk,kscan-gpio-matrix";
-    diode-direction = "row2col"; // or row2col depending on your switch/diode loop
+    diode-direction = "row2col";
     wakeup-source;
     
+    // For row2col, change PULL_DOWN to PULL_UP and ACTIVE_HIGH to ACTIVE_LOW
     row-gpios
-        = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 1: P0.10
-        , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 2: P1.11
-        , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 3: P1.13
-        , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 4: P1.15
-        , <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 5: P0.02
-        , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 6: P0.29
+        = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+        , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+        , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+        , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+        , <&gpio0  2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+        , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
         ;
 };
 
