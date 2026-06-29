@@ -1,21 +1,18 @@
 #include "midnight.dtsi"
-
-/ {
-    chosen {
-        zmk,matrix-transform = &default_transform;
-    };
-};
+#include <dt-bindings/zmk/matrix_transform.h>
 
 &kscan {
-    col-offset = <7>; // Adds the +7 shift to map to columns 7-13
-    
     col-gpios
-        = <&gpio1  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-        , <&gpio1  4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-        , <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-        , <&gpio1  0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-        , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-        , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-        , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+        = <&gpio1  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Col 1: P1.06
+        , <&gpio1  4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Col 2: P1.04
+        , <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Col 3: P0.11
+        , <&gpio1  0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Col 4: P1.00
+        , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Col 5: P0.24
+        , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Col 6: P0.22
+        , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Col 7: P0.20
         ;
+};
+
+&default_transform {
+    col-offset = <7>; // Shifts right-side matrix scanning indices to columns 7-13
 };
