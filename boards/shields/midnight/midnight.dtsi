@@ -10,19 +10,20 @@
     chosen {
         zmk,physical-layout = &default_layout;
     };
-    kscan: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "row2col";
-        wakeup-source;
-        row-gpios
-            = <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
-    };
+kscan: kscan {
+    compatible = "zmk,kscan-gpio-matrix";
+    diode-direction = "col2row"; // or row2col depending on your switch/diode loop
+    wakeup-source;
+    
+    row-gpios
+        = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 1: P0.10
+        , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 2: P1.11
+        , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 3: P1.13
+        , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 4: P1.15
+        , <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 5: P0.02
+        , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 6: P0.29
+        ;
+};
 
     default_transform: default_transform {
         // See https://zmk.dev/docs/development/hardware-integration/new-shield#matrix-transform
